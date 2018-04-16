@@ -8,12 +8,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { NgRedux, NgReduxModule } from '@angular-redux/store';
+import { IAppState, rootReducer, INITIAL_STATE } from './store';
+import { Remote } from './remote';
 
 import { AppComponent } from './app.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
+import { MovieOverviewComponent } from './movie-overview/movie-overview.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MovieListComponent,
+    MovieDetailComponent,
+    MovieOverviewComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +35,11 @@ import { AppComponent } from './app.component';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [],
+  providers: [Remote],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor( ngRedux:NgRedux<IAppState> ){
+    ngRedux.configureStore( rootReducer, INITIAL_STATE );
+  }
+}
