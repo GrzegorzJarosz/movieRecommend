@@ -1,3 +1,15 @@
-<p>
-  movie-detail works!
-</p>
+<mat-card fxFlex.lt-xs="100%" fxFlex.gt-xs="75%" fxFlex.gt-md="50%" (swiperight)="onReject(idx, movie)">
+  <mat-card-title fxLayoutAlign="center center" >
+    <span> {{movie.title}} ({{movie.rating}} / 10) </span>
+  </mat-card-title>
+  <img mat-card-image src="{{movie.imageUrl}}" alt="photo">
+  <mat-card-content><p>{{movie.summary}}</p></mat-card-content>
+  <mat-card-actions fxLayoutAlign="space-around center">
+    <button mat-button (click)="onAccept(idx, movie)">
+      <mat-icon class="icon-acc">check</mat-icon> ACCEPT
+    </button>
+    <button mat-button (click)="onReject(idx, movie)">
+      <mat-icon class="icon-rej">close</mat-icon> REJECT
+    </button>
+  </mat-card-actions>
+</mat-card>

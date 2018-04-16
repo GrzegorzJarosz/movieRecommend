@@ -5,3 +5,7 @@ body{
   padding:0;
   margin:0;
 }
+mat-card{
+  .icon-rej{color:$color-reject;}
+  .icon-acc{color:$color-accept;}
+}

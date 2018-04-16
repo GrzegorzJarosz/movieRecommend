@@ -18,5 +18,9 @@ export class Remote{
   loadMovies():Observable<IMovie[]>{
     return this.http.get<IMovie[]>(this.movieUrl)
   }
+  updateMovie(id, typeVal, movie){
+  console.log(`${this.movieUrl}/${id}/${typeVal}`)
+  return this.http.put(`${this.movieUrl}/${id}/${typeVal}`, movie,  httpOptions);
+}
 
 }
