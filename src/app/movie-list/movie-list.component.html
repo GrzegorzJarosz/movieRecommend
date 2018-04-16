@@ -1,7 +1,7 @@
 <mat-card *ngIf="(movies | async)?.length==0">Brak nowych rekomendacji</mat-card>
 
 <div *ngIf="(movies | async)?.length!=0" fxLayoutAlign="center center " fxLayout="column" fxLayoutGap="20px">
-  <div *ngFor="let movie of movies | async; let idx = index" >
+  <div *ngFor="let movie of movies | async" >
     <app-movie-detail [movie] = "movie" fxLayoutAlign="center center "></app-movie-detail>
   </div>
 </div>

@@ -23,8 +23,9 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     this.http.loadMovies().subscribe((_movies) => {
       this._movies = _movies;
-      this.ngRedux.dispatch({type:LOAD_MOVIES, movie:this._movies})
-      console.log(this._movies);
+      this.ngRedux.dispatch({type:LOAD_MOVIES, movie:this._movies});
+    },(err) => {
+      console.log(`error: ${err}`)
     });
   }
 }

@@ -23,12 +23,12 @@ export class MovieDetailComponent implements OnInit {
   ngOnInit() {
   }
 
-  onReject(i, movie){
+  onReject(movie){
   this.ngRedux.dispatch({type:REJECT_MOVIE, movie: movie})
   this.http.updateMovie(movie.id, 'reject', movie)
 }
 
-onAccept(i, movie){
+onAccept(movie){
   this.ngRedux.dispatch({type:ACCEPT_MOVIE, movie: movie})
   this.http.updateMovie(movie.id, 'accept', movie)
 }

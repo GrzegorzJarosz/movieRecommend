@@ -3,15 +3,16 @@
   <span class="spacer1"></span>
   <button mat-raised-button color="primary">
     <i class="material-icons">play_for_work</i>
-
+    {{(movies | async).length}}
   </button>
   <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
     <i class="material-icons">schedule</i>
-
+    {{(acceptedMovies | async).length}}
   </button>
 
   <mat-menu #menu="matMenu" >
-
+    <button mat-menu-item *ngIf="(acceptedMovies | async).length===0">brak</button>
+    <button mat-menu-item *ngFor="let movie of acceptedMovies | async">{{movie.title}}</button>
   </mat-menu>
 
 </mat-toolbar>
