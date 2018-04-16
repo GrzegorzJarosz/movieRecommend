@@ -4,9 +4,9 @@ Single-page application for selecting a movie/ recommendations to watch, using y
 
 ## Technologies
 
-* Angular5, 
-* Redux, 
-* Sass, 
+* Angular5,
+* Redux,
+* Sass,
 * Material Design
 
 ## Description
@@ -15,3 +15,7 @@ Single-page application for selecting a movie/ recommendations to watch, using y
 * The user can accept or reject the suggestion. Accepting is done by green button. Rejecting is
 done by red button or swipe.
 * The backend gets notified on user’s decision by a PUT call to /recommendations/<id>/accept or /recommendations/<id>/reject URL (url displayed in console)
+
+##Live
+
+https://grzegorzjarosz.github.io/movieRecommend/
