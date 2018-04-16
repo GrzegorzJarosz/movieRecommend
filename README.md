@@ -16,6 +16,6 @@ Single-page application for selecting a movie/ recommendations to watch, using y
 done by red button or swipe.
 * The backend gets notified on user’s decision by a PUT call to /recommendations/<id>/accept or /recommendations/<id>/reject URL (url displayed in console)
 
-##Live
+## Live
 
 https://grzegorzjarosz.github.io/movieRecommend/
