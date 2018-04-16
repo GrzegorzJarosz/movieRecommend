@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatSnackBar} from '@angular/material';
+
 import { NgRedux, select } from '@angular-redux/store';
 import { Remote } from './remote';
 import { IMovie } from './movie';
@@ -14,18 +16,23 @@ export class AppComponent implements OnInit {
 
   _movies: IMovie[];
   @select() movies;
+  noErrors:boolean = true;
 
   constructor(
     private http: Remote,
-    private ngRedux: NgRedux<IAppState>
+    private ngRedux: NgRedux<IAppState>,
+    public snackBar: MatSnackBar
   ){}
 
   ngOnInit(){
     this.http.loadMovies().subscribe((_movies) => {
+      this.noErrors = true;
       this._movies = _movies;
       this.ngRedux.dispatch({type:LOAD_MOVIES, movie:this._movies});
-    },(err) => {
-      console.log(`error: ${err}`)
+    },
+    (err) => {
+      this.noErrors = false;
+      this.snackBar.open(err, '', { duration: 2000 });
     });
   }
 }
