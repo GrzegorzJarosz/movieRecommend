@@ -1,3 +1,17 @@
-<p>
-  movie-overview works!
-</p>
+<mat-toolbar color="primary">
+  <h5>Movies4U</h5>
+  <span class="spacer1"></span>
+  <button mat-raised-button color="primary">
+    <i class="material-icons">play_for_work</i>
+
+  </button>
+  <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
+    <i class="material-icons">schedule</i>
+
+  </button>
+
+  <mat-menu #menu="matMenu" >
+
+  </mat-menu>
+
+</mat-toolbar>

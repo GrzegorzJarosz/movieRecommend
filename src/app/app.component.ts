@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private http: Remote,
-    private ngRedux:NgRedux<IAppState>
+    private ngRedux: NgRedux<IAppState>
   ){}
 
   ngOnInit(){
